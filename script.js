@@ -28,4 +28,38 @@ window.onload = function () {
         }
     };
 
+    let selectCat = function () {
+        if (chosenCategory === categories[0]) {
+            catagoryName.innerHTML =
+                "The Chosen Category Is Premier League Football Teams";
+        } else if (chosenCategory === categories[1]) {
+            catagoryName.innerHTML = "The Chosen Category Is Films";
+        } else if (chosenCategory === categories[2]) {
+            catagoryName.innerHTML = "The Chosen Category Is Cities";
+        }
+    };
+
+
+    // Create geusses ul TODO
+    result = function () {
+        wordHolder = document.getElementById("hold");
+        correct = document.createElement("ul");
+
+        for (let i = 0; i < word.length; i++) {
+            correct.setAttribute("id", "my-word");
+            guess = document.createElement("li");
+            guess.setAttribute("class", "guess");
+            if (word[i] === "-") {
+                guess.innerHTML = "-";
+                space = 1;
+            } else {
+                guess.innerHTML = "_";
+            }
+
+            geusses.push(guess);
+            wordHolder.appendChild(correct);
+            correct.appendChild(guess);
+        }
+    };
+
 }
