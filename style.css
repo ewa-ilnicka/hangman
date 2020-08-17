@@ -5,12 +5,16 @@
 }
 
 body {
-    background: #02ac46;
+
     font-family: sans-serif;
     color: #fff;
-    height: 100%;
     text-align: center;
     font-size: 18px;
+    max-height: 100vh;
+    background-image: url(blackboard.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Trade Winds', cursive;
 }
 
 h1,
@@ -23,6 +27,8 @@ h3 {
 
 h1 {
     font-size: 2.6em;
+    font-family: 'Fredericka the Great', cursive;
+    margin-top: 10vh;
 }
 
 h2 {
