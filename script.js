@@ -1,19 +1,20 @@
 window.onload = function () {
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    const categories;
+
+    let categories;
     let chosenCategory;
-    const word;
-    const guess;
+    let word;
+    let guess;
     let guesses = [];
-    const lives;
+    let lives;
     let counter;
-    const space;
+    let space;
 
     let showLives = document.getElementById("mylives");
     console.log(showLives);
     let showCatagory = document.getElementById("scatagory");
 
-    let buttons = function () {
+    const buttons = function () {
         myButtons = document.getElementById("buttons");
         letters = document.createElement("ul");
 
@@ -31,16 +32,14 @@ window.onload = function () {
     let selectCat = function () {
         if (chosenCategory === categories[0]) {
             catagoryName.innerHTML =
-                "The Chosen Category Is Premier League Football Teams";
+                "The Chosen Category Is PC Games";
         } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = "The Chosen Category Is Films";
+            catagoryName.innerHTML = "The Chosen Category Is Comic Books";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = "The Chosen Category Is Cities";
+            catagoryName.innerHTML = "The Chosen Category Is Books";
         }
     };
 
-
-    // Create geusses ul TODO
     result = function () {
         wordHolder = document.getElementById("hold");
         correct = document.createElement("ul");
@@ -62,17 +61,21 @@ window.onload = function () {
         }
     };
 
-
     comments = function () {
         showLives.innerHTML = "You have " + lives + " lives";
         if (lives < 1) {
             showLives.innerHTML = "Game Over";
         }
-        for (let i = 0; i < geusses.length; i++) {
-            if (counter + space === geusses.length) {
+        for (let i = 0; i < guesses.length; i++) {
+            if (counter + space === guesses.length) {
                 showLives.innerHTML = "You Win!";
             }
         }
+    };
+
+    var animate = function () {
+        var drawMe = lives;
+        drawArray[drawMe]();
     };
 
     canvas = function () {
@@ -133,7 +136,18 @@ window.onload = function () {
         draw(60, 70, 20, 100);
     };
 
-    drawArray = [rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1];
+    drawArray = [
+        rightLeg,
+        leftLeg,
+        rightArm,
+        leftArm,
+        torso,
+        head,
+        frame4,
+        frame3,
+        frame2,
+        frame1
+    ];
 
     check = function () {
         list.onclick = function () {
@@ -147,7 +161,7 @@ window.onload = function () {
                     console.log(1);
                 }
             }
-            var j = word.indexOf(guess);
+            let j = word.indexOf(guess);
             if (j === -1) {
                 lives -= 1;
                 comments();
@@ -160,9 +174,9 @@ window.onload = function () {
 
     play = function () {
         categories = [
-            ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-            ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-            ["manchester", "milan", "madrid", "amsterdam", "prague"]
+            ["witcher", "dragon-age", "baldurs-gate", "skyrim", "portal", "oblivion", "divinity"],
+            ["batman", "spiderman", "iron-man", "justice-league", "avengers"],
+            ["harry-potter", "game-of-thrones", "interview-with-the-vampire", "hobbit", "silmarillion"]
         ];
 
         chosenCategory = categories[Math.floor(Math.random() * categories.length)];
@@ -182,4 +196,11 @@ window.onload = function () {
     };
 
     play();
-}
+
+    document.getElementById("reset").onclick = function () {
+        correct.parentNode.removeChild(correct);
+        letters.parentNode.removeChild(letters);
+        context.clearRect(0, 0, 400, 400);
+        play();
+    };
+};
