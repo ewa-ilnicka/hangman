@@ -4,7 +4,7 @@ window.onload = function () {
     let chosenCategory;
     const word;
     const guess;
-    let geusses = [];
+    let guesses = [];
     const lives;
     let counter;
     const space;
@@ -56,10 +56,22 @@ window.onload = function () {
                 guess.innerHTML = "_";
             }
 
-            geusses.push(guess);
+            guesses.push(guess);
             wordHolder.appendChild(correct);
             correct.appendChild(guess);
         }
     };
 
+
+    comments = function () {
+        showLives.innerHTML = "You have " + lives + " lives";
+        if (lives < 1) {
+            showLives.innerHTML = "Game Over";
+        }
+        for (var i = 0; i < geusses.length; i++) {
+            if (counter + space === geusses.length) {
+                showLives.innerHTML = "You Win!";
+            }
+        }
+    };
 }
