@@ -5,12 +5,11 @@
   <a href="https://ewa-ilnicka.github.io/hangman/">
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a>
-
   <h3 align="center">Hangman game</h3>
-
-  <p align="center">
-    A classic word game in which you must guess a secret word. It was made with [Kodilla] (https://kodilla.com/pl) tutorial to practice my JavaScript skills.
-
+  </p>
+<p>
+    A classic word game in which you must guess a secret word. It was made with <a href="https://kodilla.com/pl">Kodilla</a> tutorial to practice my JavaScript skills.
+    </p>
 
 
 ## Table of Contents
